@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryBar = (prop) => {
+const ButtonBar = (prop) => {
   const state = [
     {category: 'High-end', models: ['iPhone 11', 'Galaxy 3000', 'Nokia L23']},
     {category: 'Mid-Tier', models: ['iPhone 10', 'LG50', 'Samsung A50']},
@@ -9,12 +9,12 @@ const CategoryBar = (prop) => {
 
   return(
 
-      <div className="row">
-        
+    <div class="btn-group btn-group-sm ml-auto text-center" role="group" aria-label="...">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
             {state.map((item)=>{
               return(
-                <div class="dropdown col-sm">
-                <button class="btn btn-block btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown col">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {item.category}
                 </button>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -30,7 +30,8 @@ const CategoryBar = (prop) => {
               })
             }
       </div>
+      </div>
   )
 }
 
-export default CategoryBar;
+export default ButtonBar;

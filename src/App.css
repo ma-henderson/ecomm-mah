@@ -25,3 +25,9 @@ height: 60px;
   color: rgb(100, 110, 203);
   font-size: 1.8em
 }
+
+@media (min-width: 992px) {
+  .navbar {
+      height:50px;
+  }
+}

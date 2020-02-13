@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import CategoryBar from './components/CategoryBar';
+import Banner from './components/Banner';
+import NavbarAlt from './components/NavbarAlt';
+import ButtonBar from './components/ButtonBar';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <CategoryBar />
+      <NavbarAlt />
+      <Banner />
     </div>
   );
 }
