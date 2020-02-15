@@ -8,29 +8,28 @@ const ButtonBar = (prop) => {
   ]
 
   return(
-
-    <div class="btn-group btn-group-sm ml-auto text-center" role="group" aria-label="...">
-          <div class="btn-group mr-2" role="group" aria-label="First group">
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+        <ul class="navbar-nav ml-auto text-center">
             {state.map((item)=>{
               return(
-                <div class="dropdown col">
-                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {item.category}
-                </button>
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="nav-item dropdown" style={{marginLeft:"20px"}}>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {item.category}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {item.models.map((model)=>{
                       return(
                         <a className="dropdown-item" href="#">{model}</a>
                       )
                       })
                     }
-                    </div>
-                    </div>
+                  </div>
+                </li>
                 )
               })
             }
-      </div>
-      </div>
+        </ul>
+    </div>
   )
 }
 

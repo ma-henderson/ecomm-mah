@@ -2,13 +2,21 @@ import React from 'react';
 import './App.css';
 import Banner from './components/Banner';
 import NavbarAlt from './components/NavbarAlt';
-import ButtonBar from './components/ButtonBar';
+import TopJumbotron from './components/TopJumbotron';
+import ProductLayout from './components/ProductLayout';
+import ProductCard from './components/ProductCard';
 
 function App() {
   return (
     <div className="App">
       <NavbarAlt />
-      <Banner />
+      <TopJumbotron />
+      <ProductLayout>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </ProductLayout>
     </div>
   );
 }
