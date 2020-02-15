@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Banner from './components/Banner';
 import NavbarAlt from './components/NavbarAlt';
 import TopJumbotron from './components/TopJumbotron';
 import ProductLayout from './components/ProductLayout';
