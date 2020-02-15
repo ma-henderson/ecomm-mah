@@ -10,12 +10,7 @@ function App() {
     <div className="App">
       <NavbarAlt />
       <TopJumbotron />
-      <ProductLayout>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </ProductLayout>
+      <ProductLayout/>
     </div>
   );
 }
