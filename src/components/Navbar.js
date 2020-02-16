@@ -3,12 +3,13 @@ import Logo_transparent from '../img/logo_transparent.png'
 import ButtonBar from './ButtonBar'
 
 
-const NavbarAlt = (prop) => {
+const Navbar = (prop) => {
   const logoStyle = {
     height: "120px",
     top: "20px",
     position: "relative",
     transform: "rotate(-20deg)"
+
     }
   
   return(
@@ -40,4 +41,4 @@ const NavbarAlt = (prop) => {
 </nav>
   )
 }
-export default NavbarAlt
+export default Navbar

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
 import './App.css';
-import NavbarAlt from './components/NavbarAlt';
+import Navbar from './components/Navbar';
 import TopJumbotron from './components/TopJumbotron';
 import ProductLayout from './components/ProductLayout';
-import ProductCard from './components/ProductCard';
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <NavbarAlt />
+      <Navbar />
       <TopJumbotron />
       <ProductLayout/>
     </div>
