@@ -1,30 +1,38 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import PhonePic from '../img/iphone11.jpg'
 import PhonePic2 from '../img/iphone11-gold.png'
 import CartButton from './CartButton'
-
+import AppContext from '../AppContext'
 
 const ProductCard = (props) => {
+
+  const [globalState, setGlobalState] = useContext(AppContext)
   
-const state = {
-  image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", stock: true, price: "AED 3,900"
-}
+  // eventually need fetch data here
+  setGlobalState({
+    ...globalState,
+    cart[1]={image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", stock: true, price: "AED 3,900"}
+  })
+  const state = {
+    id: 
+    
+  }
 
-const textStyle = {
-  textAlign: "center"
-}
+  const textStyle = {
+    textAlign: "center"
+  }
 
-function stockStatus(stockBoolean) {
-return (stockBoolean) ? 
-<div>
-  <div class="spinner-grow spinner-grow-sm text-success" role="status">
-    <span class="sr-only">Loading...</span>
+  function stockStatus(stockBoolean) {
+  return (stockBoolean) ? 
+  <div>
+    <div class="spinner-grow spinner-grow-sm text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <small class="text-muted">  IN STOCK NOW</small>
   </div>
-  <small class="text-muted">  IN STOCK NOW</small>
-</div>
-:
-<small class="text-muted">OUT OF STOCK</small>
-}
+  :
+  <small class="text-muted">OUT OF STOCK</small>
+  }
 
   return(
     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" style={{paddingBottom: "16px"}}>
@@ -57,7 +65,7 @@ return (stockBoolean) ?
         <p class="card-text">{state.text}</p>
         <div style={textStyle}>
           <p class="card-text">{state.price}</p>
-          <CartButton inStock={state.stock}/>
+          <CartButton item={state}/>
         </div>
         <br/>
         <div class="card-footer" style={textStyle}>
