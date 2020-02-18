@@ -6,17 +6,12 @@ import AppContext from '../AppContext'
 
 const ProductCard = (props) => {
 
-  const [globalState, setGlobalState] = useContext(AppContext)
-  
+  const [products, setProducts] = useState(
+        {id: 1, image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", stock: true, price: "AED 3,900"}
+  )
+
   // eventually need fetch data here
-  setGlobalState({
-    ...globalState,
-    cart[1]={image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", stock: true, price: "AED 3,900"}
-  })
-  const state = {
-    id: 
-    
-  }
+  
 
   const textStyle = {
     textAlign: "center"
@@ -61,15 +56,15 @@ const ProductCard = (props) => {
         </a>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{state.title}</h5>
-        <p class="card-text">{state.text}</p>
+        <h5 class="card-title">{products.title}</h5>
+        <p class="card-text">{products.text}</p>
         <div style={textStyle}>
-          <p class="card-text">{state.price}</p>
-          <CartButton item={state}/>
+          <p class="card-text">{products.price}</p>
+          <CartButton item={products}/>
         </div>
         <br/>
         <div class="card-footer" style={textStyle}>
-        {stockStatus(state.stock)}
+        {stockStatus(products.stock)}
       </div>
       </div>
     </div>
