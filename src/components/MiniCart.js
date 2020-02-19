@@ -19,7 +19,7 @@ const MiniCart = (props) => {
 
   let cartContents = {}
   return(  
-  <div>
+  <div style={{color: "white", border: "2px solid white"}}>
   {cart.length > 0 && cartQty}<i className="fas fa-shopping-cart"></i>
   </div>
 )

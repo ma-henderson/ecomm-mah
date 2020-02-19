@@ -16,22 +16,22 @@ function CartButton(props) {
       // Check if cart is empty
       if (globalState.cart.length > 0) {
         //Check if product is already in cart
-        globalState.cart
-        .find(product => product.id == props.item.id) // returns an Array always
-        .then((cartResults) => {
-          if(cartResults.length > 0) {
-            // > TRUE > add qty to cart
-            cartResults[0].qty += 1
-          } else { 
-            // > FALSE> add entire product to cart with qty = 1
-            props.item.qty = 1
-            let newCart = [...globalState.cart, props.item];
-            setGlobalState({
-              ...globalState,
-              cart: newCart
-            })
-          }
-        }) 
+        let cartResults = globalState.cart.find(product => product.id == props.item.id) // returns an Array always
+        
+        if(cartResults.length > 0) {
+          // > TRUE > add qty to cart
+          cartResults[0].qty += 1
+
+        } else { 
+          
+          // > FALSE> add entire product to cart with qty = 1
+          props.item.qty = 1
+          let newCart = [...globalState.cart, props.item];
+          setGlobalState({
+            ...globalState,
+            cart: newCart
+          })
+        } 
       } else {
         props.item.qty = 1
         let newCart = [...globalState.cart, props.item];
