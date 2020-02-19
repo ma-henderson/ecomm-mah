@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo_transparent from '../img/logo_transparent.png'
 import ButtonBar from './ButtonBar'
+import AppContext from '../AppContext'
+import MiniCart from './MiniCart'
 
 
 const Navbar = (prop) => {
@@ -31,7 +33,7 @@ const Navbar = (prop) => {
                 <a class="nav-link" href="#">Log in</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
+               <MiniCart />
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>

@@ -2,12 +2,25 @@ import React, {useContext} from 'react';
 import AppContext from '../AppContext';
 
 const MiniCart = (props) => {
-  [globalState, setGlobalState] = useContext(AppContext)
+  const [globalState, setGlobalState] = useContext(AppContext)
+  let cart = globalState.cart;
+
+  let cartTotal =  cart.reduce((acc , currentProd)=>{
+    const { price, qty } = currentProd;
+    const totalAmount = parseFloat(currentProd.price) * qty;
+  return acc + totalAmount;
+  }, 0)
+
+  let cartQty =  cart.reduce((acc , currentProd)=>{
+    const { qty } = currentProd;
+  return acc +  qty;
+  }, 0)
+
 
   let cartContents = {}
-  return(
+  return(  
   <div>
-  {cartContents}<i className="fa fas-shopping-cart"></i>
+  {cart.length > 0 && cartQty}<i className="fas fa-shopping-cart"></i>
   </div>
 )
 }

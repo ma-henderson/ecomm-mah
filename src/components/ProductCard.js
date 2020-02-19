@@ -1,13 +1,12 @@
-import React, {useContext} from 'react'
+import React, {useState} from 'react'
 import PhonePic from '../img/iphone11.jpg'
 import PhonePic2 from '../img/iphone11-gold.png'
 import CartButton from './CartButton'
-import AppContext from '../AppContext'
 
 const ProductCard = (props) => {
 
-  const [products, setProducts] = useState(
-        {id: 1, image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", stock: true, price: "AED 3,900"}
+  const [product, setProduct] = useState(
+        {id: 1, image: PhonePic, title: "iPhone 11", text: "Sexiness embodied, price unjustified, be a Jobbs-o-holic!", inStock: true, price: 3900}
   )
 
   // eventually need fetch data here
@@ -56,15 +55,15 @@ const ProductCard = (props) => {
         </a>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{products.title}</h5>
-        <p class="card-text">{products.text}</p>
+        <h5 class="card-title">{product.title}</h5>
+        <p class="card-text">{product.text}</p>
         <div style={textStyle}>
-          <p class="card-text">{products.price}</p>
-          <CartButton item={products}/>
+          <p class="card-text">{product.price}</p>
+          <CartButton item={product}/>
         </div>
         <br/>
         <div class="card-footer" style={textStyle}>
-        {stockStatus(products.stock)}
+        {stockStatus(product.stock)}
       </div>
       </div>
     </div>

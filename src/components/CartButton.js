@@ -7,36 +7,46 @@ function CartButton(props) {
     textAlign: "center"
   }
 
-  [globalState, setGlobalState] = useContext(AppContext)
+  const [globalState, setGlobalState] = useContext(AppContext)
 
   const handleClick = () => {
     //Check if ITEM is in stock
-    if (stockStatus) {
-      //Check if ITEM is already in cart
-      if (globalState.cart.find(product => product.id = props.item.id)) {
-        // > TRUE > add qty to cart
-        let tempQty = globalState.cart;
-        tempQty += globalState.cart.id[qty]
-        setGlobalState = {
+    if (props.item.inStock) {
+      
+      // Check if cart is empty
+      if (globalState.cart.length > 0) {
+        //Check if product is already in cart
+        globalState.cart
+        .find(product => product.id == props.item.id) // returns an Array always
+        .then((cartResults) => {
+          if(cartResults.length > 0) {
+            // > TRUE > add qty to cart
+            cartResults[0].qty += 1
+          } else { 
+            // > FALSE> add entire product to cart with qty = 1
+            props.item.qty = 1
+            let newCart = [...globalState.cart, props.item];
+            setGlobalState({
+              ...globalState,
+              cart: newCart
+            })
+          }
+        }) 
+      } else {
+        props.item.qty = 1
+        let newCart = [...globalState.cart, props.item];
+        setGlobalState({
           ...globalState,
-          tempQty
-        }
-        setGlobalState()
+          cart: newCart
+        })
       }
-
-        setGlobalState(
-          ...globalState,
-          tempCart
-        )
-
-    } 
-    
+    } // in future can add alert for 'not in stock'
   }
 
 
 
 
-// > FALSE> add entire item to cart with qty = 1
+
 
   let buttonStatus = {}
 

@@ -9,21 +9,21 @@ function App() {
 
   const [globalState, setGlobalState] = useState(
     {
-      cart: {}
+      cart: []
     }
   );
 
 
   return (
     
-    <div className="App">
+    
     <AppContext.Provider value={[globalState, setGlobalState]}>
       <Navbar />
       <TopJumbotron />
       {/* <p>globalState.cart</p> */}
       <ProductLayout/>
-      </AppContext.Provider>
-    </div>
+    </AppContext.Provider>
+    
   );
 }
 
